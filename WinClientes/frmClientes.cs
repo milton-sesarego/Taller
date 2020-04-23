@@ -64,6 +64,7 @@ namespace WinClientes
         {
             List<Cliente> lista = ClientesManager.Buscar();
             dgv.DataSource = lista;
+            setBusquedaActiva(false);
         }
         private void dgv_Click(object sender, EventArgs e)
         {
@@ -74,7 +75,14 @@ namespace WinClientes
             IDCliente = Convert.ToInt32(dgv.CurrentRow.Cells[0].Value);
             txtNombre.Text = Convert.ToString(dgv.CurrentRow.Cells[1].Value);
             txtApellido.Text = Convert.ToString(dgv.CurrentRow.Cells[2].Value);
-            dtpFechaNacimiento.Value = Convert.ToDateTime(dgv.CurrentRow.Cells[3].Value);
+            if (!string.IsNullOrEmpty(Convert.ToString(dgv.CurrentRow.Cells[3].Value)))
+            {
+                dtpFechaNacimiento.Value = Convert.ToDateTime(dgv.CurrentRow.Cells[3].Value);
+            }
+            else
+            {
+                dtpFechaNacimiento.Value = DateTime.Now.Date;
+            }
             txtNroDocumento.Text = Convert.ToString(dgv.CurrentRow.Cells[4].Value);
             txtDireccion.Text = Convert.ToString(dgv.CurrentRow.Cells[5].Value);
             btnGuardar.Image = iconoGuardar;
@@ -121,18 +129,28 @@ namespace WinClientes
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            busquedaActiva = !busquedaActiva;
+            setBusquedaActiva(!busquedaActiva);
             if (busquedaActiva)
             {
-                btnBuscar.Text = "Restablecer";
                 List<Cliente> lista = ClientesManager.Buscar(txtNombre.Text, txtApellido.Text);
                 dgv.DataSource = lista;
             }
             else
             {
-                btnBuscar.Text = "Buscar";
                 ActualizarGrilla();
                 Limpiar();
+            }
+        }
+        private void setBusquedaActiva(bool estado)
+        {
+            busquedaActiva = estado;
+            if (busquedaActiva)
+            {
+                btnBuscar.Text = "Restablecer";
+            }
+            else
+            {
+                btnBuscar.Text = "Buscar";
             }
         }
     }

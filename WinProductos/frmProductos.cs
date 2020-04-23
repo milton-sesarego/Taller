@@ -69,6 +69,7 @@ namespace WinProductos
         {
             List<Producto> lista = ProductosManager.Buscar();
             dgv.DataSource = lista;
+            setBusquedaActiva(false);
         }
         private void dgv_Click(object sender, EventArgs e)
         {
@@ -124,18 +125,28 @@ namespace WinProductos
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            busquedaActiva = !busquedaActiva;
+            setBusquedaActiva(!busquedaActiva);
             if (busquedaActiva)
             {
-                btnBuscar.Text = "Restablecer";
                 List<Producto> lista = ProductosManager.Buscar(txtNombre.Text);
                 dgv.DataSource = lista;
             }
             else
             {
-                btnBuscar.Text = "Buscar";
                 ActualizarGrilla();
                 Limpiar();
+            }
+        }
+        private void setBusquedaActiva(bool estado)
+        {
+            busquedaActiva = estado;
+            if (busquedaActiva)
+            {
+                btnBuscar.Text = "Restablecer";
+            }
+            else
+            {
+                btnBuscar.Text = "Buscar";
             }
         }
     }

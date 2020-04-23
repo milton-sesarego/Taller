@@ -1,6 +1,6 @@
-﻿namespace WinClientes
+﻿namespace WinProductos
 {
-    partial class frmClientes
+    partial class frmProductos
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -30,15 +30,13 @@
         {
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.groupboxDatos = new System.Windows.Forms.GroupBox();
-            this.txtNroDocumento = new System.Windows.Forms.TextBox();
-            this.lblNroDocumento = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.linkYoutube = new System.Windows.Forms.LinkLabel();
             this.linkBlog = new System.Windows.Forms.LinkLabel();
             this.barraTareas = new System.Windows.Forms.ToolStrip();
@@ -71,90 +69,71 @@
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
-            // txtApellido
+            // txtStock
             // 
-            this.txtApellido.Location = new System.Drawing.Point(21, 134);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(253, 26);
-            this.txtApellido.TabIndex = 3;
+            this.txtStock.Location = new System.Drawing.Point(21, 330);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(253, 26);
+            this.txtStock.TabIndex = 3;
             // 
-            // lblApellido
+            // lblStock
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(17, 111);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(65, 20);
-            this.lblApellido.TabIndex = 4;
-            this.lblApellido.Text = "Apellido";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Location = new System.Drawing.Point(17, 307);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(50, 20);
+            this.lblStock.TabIndex = 4;
+            this.lblStock.Text = "Stock";
             // 
-            // lblFecha
+            // lblDescripcion
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(17, 175);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(157, 20);
-            this.lblFecha.TabIndex = 6;
-            this.lblFecha.Text = "Fecha de nacimiento";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(17, 113);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(92, 20);
+            this.lblDescripcion.TabIndex = 9;
+            this.lblDescripcion.Text = "Descripción";
             // 
-            // dtpFechaNacimiento
+            // txtDescripcion
             // 
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(21, 198);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(253, 26);
-            this.dtpFechaNacimiento.TabIndex = 8;
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(17, 301);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(75, 20);
-            this.lblDireccion.TabIndex = 9;
-            this.lblDireccion.Text = "Dirección";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(21, 324);
-            this.txtDireccion.Multiline = true;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(253, 87);
-            this.txtDireccion.TabIndex = 10;
+            this.txtDescripcion.Location = new System.Drawing.Point(21, 136);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(253, 87);
+            this.txtDescripcion.TabIndex = 10;
             // 
             // groupboxDatos
             // 
-            this.groupboxDatos.Controls.Add(this.txtNroDocumento);
-            this.groupboxDatos.Controls.Add(this.lblNroDocumento);
-            this.groupboxDatos.Controls.Add(this.txtDireccion);
+            this.groupboxDatos.Controls.Add(this.txtPrecio);
+            this.groupboxDatos.Controls.Add(this.lblPrecio);
+            this.groupboxDatos.Controls.Add(this.txtDescripcion);
             this.groupboxDatos.Controls.Add(this.txtNombre);
-            this.groupboxDatos.Controls.Add(this.dtpFechaNacimiento);
-            this.groupboxDatos.Controls.Add(this.lblDireccion);
-            this.groupboxDatos.Controls.Add(this.txtApellido);
-            this.groupboxDatos.Controls.Add(this.lblApellido);
-            this.groupboxDatos.Controls.Add(this.lblFecha);
+            this.groupboxDatos.Controls.Add(this.lblDescripcion);
+            this.groupboxDatos.Controls.Add(this.txtStock);
+            this.groupboxDatos.Controls.Add(this.lblStock);
             this.groupboxDatos.Controls.Add(this.lblNombre);
             this.groupboxDatos.Location = new System.Drawing.Point(16, 44);
             this.groupboxDatos.Name = "groupboxDatos";
             this.groupboxDatos.Size = new System.Drawing.Size(295, 452);
             this.groupboxDatos.TabIndex = 11;
             this.groupboxDatos.TabStop = false;
-            this.groupboxDatos.Text = "Datos Personales";
+            this.groupboxDatos.Text = "Datos del Producto";
             // 
-            // txtNroDocumento
+            // txtPrecio
             // 
-            this.txtNroDocumento.Location = new System.Drawing.Point(21, 259);
-            this.txtNroDocumento.Name = "txtNroDocumento";
-            this.txtNroDocumento.Size = new System.Drawing.Size(253, 26);
-            this.txtNroDocumento.TabIndex = 12;
+            this.txtPrecio.Location = new System.Drawing.Point(21, 260);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(253, 26);
+            this.txtPrecio.TabIndex = 12;
             // 
-            // lblNroDocumento
+            // lblPrecio
             // 
-            this.lblNroDocumento.AutoSize = true;
-            this.lblNroDocumento.Location = new System.Drawing.Point(17, 237);
-            this.lblNroDocumento.Name = "lblNroDocumento";
-            this.lblNroDocumento.Size = new System.Drawing.Size(143, 20);
-            this.lblNroDocumento.TabIndex = 11;
-            this.lblNroDocumento.Text = "Nro de Documento";
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(17, 237);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(53, 20);
+            this.lblPrecio.TabIndex = 11;
+            this.lblPrecio.Text = "Precio";
             // 
             // linkYoutube
             // 
@@ -202,35 +181,35 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Image = global::WinClientes.Properties.Resources.agregar;
+            this.btnGuardar.Image = global::WinProductos.Properties.Resources.agregar;
             this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(92, 33);
+            this.btnGuardar.Size = new System.Drawing.Size(92, 29);
             this.btnGuardar.Text = "Nuevo";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Image = global::WinClientes.Properties.Resources.cancel;
+            this.btnCancelar.Image = global::WinProductos.Properties.Resources.cancel;
             this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 33);
+            this.btnCancelar.Size = new System.Drawing.Size(106, 29);
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Image = global::WinClientes.Properties.Resources.buscar;
+            this.btnBuscar.Image = global::WinProductos.Properties.Resources.buscar;
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(91, 33);
@@ -240,14 +219,14 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Image = global::WinClientes.Properties.Resources.eliminar;
+            this.btnEliminar.Image = global::WinProductos.Properties.Resources.eliminar;
             this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(102, 33);
+            this.btnEliminar.Size = new System.Drawing.Size(102, 29);
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -264,11 +243,11 @@
             this.dgv.TabIndex = 15;
             this.dgv.Click += new System.EventHandler(this.dgv_Click);
             // 
-            // frmClientes
+            // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WinClientes.Properties.Resources.fondo;
+            this.BackgroundImage = global::WinProductos.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1206, 557);
             this.Controls.Add(this.dgv);
@@ -276,9 +255,9 @@
             this.Controls.Add(this.linkBlog);
             this.Controls.Add(this.linkYoutube);
             this.Controls.Add(this.groupboxDatos);
-            this.Name = "frmClientes";
-            this.Text = "Administración de Clientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
+            this.Name = "frmProductos";
+            this.Text = "Administración de Productos";
+            this.Load += new System.EventHandler(this.frmProductos_Load);
             this.groupboxDatos.ResumeLayout(false);
             this.groupboxDatos.PerformLayout();
             this.barraTareas.ResumeLayout(false);
@@ -293,12 +272,10 @@
 
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.GroupBox groupboxDatos;
         private System.Windows.Forms.LinkLabel linkYoutube;
         private System.Windows.Forms.LinkLabel linkBlog;
@@ -311,8 +288,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnCancelar;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.TextBox txtNroDocumento;
-        private System.Windows.Forms.Label lblNroDocumento;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Label lblPrecio;
     }
 }
 

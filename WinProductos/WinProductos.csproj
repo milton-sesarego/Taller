@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66018AD8-330B-4C8B-8383-2DF72F73C101}</ProjectGuid>
+    <ProjectGuid>{0E8C1AF4-278A-4ECC-B7E7-87D7A8634C13}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WinClientes</RootNamespace>
-    <AssemblyName>WinClientes</AssemblyName>
+    <RootNamespace>WinProductos</RootNamespace>
+    <AssemblyName>WinProductos</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmClientes.cs">
+    <Compile Include="frmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClientes.Designer.cs">
-      <DependentUpon>frmClientes.cs</DependentUpon>
+    <Compile Include="frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmClientes.resx">
-      <DependentUpon>frmClientes.cs</DependentUpon>
+    <EmbeddedResource Include="frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,48 +81,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\actualizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\agregar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\cancel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\eliminar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\guardar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="fondo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actualizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\agregar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\eliminar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guardar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fondo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{56d322f8-2a59-4146-be6e-e3e56174b890}</Project>
       <Name>BusinessLogic</Name>
@@ -131,6 +89,27 @@
       <Project>{fbd001c5-1166-4493-b376-c1447902ef7b}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

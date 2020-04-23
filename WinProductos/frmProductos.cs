@@ -9,33 +9,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using WinClientes.Properties;
-using BussinesLogic;
+using WinProductos.Properties;
+using BusinessLogic;
 using Domain;
 
-namespace WinClientes
+namespace WinProductos
 {
-    public partial class frmClientes : Form
+    public partial class frmProductos : Form
     {
-        public frmClientes()
+        public frmProductos()
         {
             InitializeComponent();
         }
 
-        public int IDCliente;
+        public int IDProducto;
         public Bitmap iconoGuardar = Resources.guardar;
         public Bitmap iconoAgregar = Resources.agregar;
         public bool busquedaActiva = false;
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cliente pCliente = ObtenerCliente();
-            if (ClientesManager.Guardar(pCliente) == 0)
+            Producto pProducto = ObtenerProducto();
+            if (ProductosManager.Guardar(pProducto) == 0)
             {
                 MessageBox.Show("Error al añadir o actualizar registro");
             }
             else
             {
-                if (IDCliente == 0)
+                if (IDProducto == 0)
                 {
                     MessageBox.Show("Se añadió un nuevo registro");
                 }
@@ -47,22 +48,26 @@ namespace WinClientes
             ActualizarGrilla();
             Limpiar();
         }
-        private Cliente ObtenerCliente()
+        private Producto ObtenerProducto()
         {
-            Cliente pCliente = new Cliente();
+            Producto pProducto = new Producto();
 
-            pCliente.ID = IDCliente;
-            pCliente.Nombre = txtNombre.Text;
-            pCliente.Apellido = txtApellido.Text;
-            pCliente.Fecha_Nac = dtpFechaNacimiento.Value.Year.ToString() + '/' + dtpFechaNacimiento.Value.Month.ToString() + '/' + dtpFechaNacimiento.Value.Day.ToString(); ;
-            pCliente.Nro_Doc = txtNroDocumento.Text;
-            pCliente.Direccion = txtDireccion.Text;
-
-            return pCliente;
+            pProducto.ID = IDProducto;
+            pProducto.Nombre = txtNombre.Text;
+            pProducto.Descripcion = txtDescripcion.Text;
+            if (!string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                pProducto.Precio = Convert.ToDecimal(txtPrecio.Text);
+            }
+            if (!string.IsNullOrEmpty(txtStock.Text))
+            {
+                pProducto.Stock = Convert.ToInt32(txtStock.Text);
+            }
+            return pProducto;
         }
         private void ActualizarGrilla()
         {
-            List<Cliente> lista = ClientesManager.Buscar();
+            List<Producto> lista = ProductosManager.Buscar();
             dgv.DataSource = lista;
         }
         private void dgv_Click(object sender, EventArgs e)
@@ -71,23 +76,21 @@ namespace WinClientes
         }
         private void ActualizarControles()
         {
-            IDCliente = Convert.ToInt32(dgv.CurrentRow.Cells[0].Value);
-            txtNombre.Text = Convert.ToString(dgv.CurrentRow.Cells[1].Value);
-            txtApellido.Text = Convert.ToString(dgv.CurrentRow.Cells[2].Value);
-            dtpFechaNacimiento.Value = Convert.ToDateTime(dgv.CurrentRow.Cells[3].Value);
-            txtNroDocumento.Text = Convert.ToString(dgv.CurrentRow.Cells[4].Value);
-            txtDireccion.Text = Convert.ToString(dgv.CurrentRow.Cells[5].Value);
             btnGuardar.Image = iconoGuardar;
             btnGuardar.Text = "Modificar";
+            IDProducto = Convert.ToInt32(dgv.CurrentRow.Cells[0].Value);
+            txtNombre.Text = Convert.ToString(dgv.CurrentRow.Cells[1].Value);
+            txtDescripcion.Text = Convert.ToString(dgv.CurrentRow.Cells[2].Value);
+            txtPrecio.Text = Convert.ToString(dgv.CurrentRow.Cells[3].Value);
+            txtStock.Text = Convert.ToString(dgv.CurrentRow.Cells[4].Value);
         }
         private void Limpiar()
         {
-            IDCliente = 0;
+            IDProducto = 0;
             txtNombre.Text = "";
-            txtApellido.Text = "";
-            dtpFechaNacimiento.Value = DateTime.Now.Date;
-            txtDireccion.Text = "";
-            txtNroDocumento.Text = "";
+            txtStock.Text = "";
+            txtDescripcion.Text = "";
+            txtPrecio.Text = "";
             btnGuardar.Image = iconoAgregar;
             btnGuardar.Text = "Nuevo";
         }
@@ -97,25 +100,25 @@ namespace WinClientes
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (IDCliente == 0)
+            if (IDProducto == 0)
             {
                 MessageBox.Show("No hay ningún registro seleccionado");
             }
             else
             {
-                if (ClientesManager.Eliminar(IDCliente) == 0)
+                if (ProductosManager.Eliminar(IDProducto) == 0)
                 {
                     MessageBox.Show("Ocurrió un error al querer eliminar el registro");
                 }
                 else
                 {
-                    MessageBox.Show("El registro fue eliminado"); 
+                    MessageBox.Show("El registro fue eliminado");
                 }
                 ActualizarGrilla();
                 Limpiar();
             }
         }
-        private void frmClientes_Load(object sender, EventArgs e)
+        private void frmProductos_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
         }
@@ -125,7 +128,7 @@ namespace WinClientes
             if (busquedaActiva)
             {
                 btnBuscar.Text = "Restablecer";
-                List<Cliente> lista = ClientesManager.Buscar(txtNombre.Text, txtApellido.Text);
+                List<Producto> lista = ProductosManager.Buscar(txtNombre.Text);
                 dgv.DataSource = lista;
             }
             else

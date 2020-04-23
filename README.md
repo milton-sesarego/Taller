@@ -1,1 +1,1 @@
-# Taller de Windows Form y SQL Server
+# Taller .NET y SQL Server

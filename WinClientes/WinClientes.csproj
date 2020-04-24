@@ -84,27 +84,6 @@
     <None Include="Resources\Buscar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\actualizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\agregar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\cancel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\eliminar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\guardar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="fondo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\actualizar.png" />
   </ItemGroup>
   <ItemGroup>

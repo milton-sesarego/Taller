@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinProductos", "WinProductos\WinProductos.csproj", "{0E8C1AF4-278A-4ECC-B7E7-87D7A8634C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{CE4A4BD9-0EEA-4816-BE0A-79B2C1956480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{0E8C1AF4-278A-4ECC-B7E7-87D7A8634C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8C1AF4-278A-4ECC-B7E7-87D7A8634C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8C1AF4-278A-4ECC-B7E7-87D7A8634C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE4A4BD9-0EEA-4816-BE0A-79B2C1956480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE4A4BD9-0EEA-4816-BE0A-79B2C1956480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE4A4BD9-0EEA-4816-BE0A-79B2C1956480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE4A4BD9-0EEA-4816-BE0A-79B2C1956480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{92638348-6B3B-4336-A018-53A77643D1AF} = {FBDB2DA1-8733-4ECF-92E9-26E040C1ED83}
 		{FBD001C5-1166-4493-B376-C1447902EF7B} = {13F56887-95F1-402C-B527-4BF921A20B36}
 		{0E8C1AF4-278A-4ECC-B7E7-87D7A8634C13} = {A302FF43-8FF8-4F61-9D72-506DCA472AD3}
+		{CE4A4BD9-0EEA-4816-BE0A-79B2C1956480} = {A302FF43-8FF8-4F61-9D72-506DCA472AD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC435B64-E946-405F-B3F7-9B476FC8D905}

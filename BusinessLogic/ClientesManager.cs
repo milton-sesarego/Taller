@@ -12,13 +12,6 @@ namespace BussinesLogic
     {
         public static int Guardar(Cliente pCliente)
         {
-            // Validamos que la fecha de nacimiento no sea mayor a la fecha actual
-            DateTime fecha = DateTime.Parse(pCliente.Fecha_Nac);
-            if (fecha > DateTime.Now)
-            {
-                return 0;
-            }
-
             // Valida que el nro de documento no se repita
             List<Cliente> lista = new List<Cliente>(); 
             lista = ClientesDAL.Buscar(pCliente.Nro_Doc);

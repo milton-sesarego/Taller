@@ -29,6 +29,13 @@ namespace WinClientes
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Cliente pCliente = ObtenerCliente();
+            // Validamos que la fecha de nacimiento no sea mayor a la fecha actual
+            DateTime fecha = DateTime.Parse(pCliente.Fecha_Nac);
+            if (fecha > DateTime.Now)
+            {
+                MessageBox.Show("La fecha de nacimiento no debe ser mayor a la fecha actual");
+                return;
+            }
             if (ClientesManager.Guardar(pCliente) == 0)
             {
                 MessageBox.Show("Error al añadir o actualizar registro");

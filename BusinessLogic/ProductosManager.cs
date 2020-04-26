@@ -12,16 +12,6 @@ namespace BusinessLogic
     {
         public static int Guardar(Producto pProducto)
         {
-            // Validamos que el stock sea mayor que 0
-            if (pProducto.Stock < 0)
-            {
-                return 0;
-            }
-            // Validamos que el precio sea mayor a 0
-            if (pProducto.Precio < 0)
-            {
-                return 0;
-            }
             return ProductosDAL.Guardar(pProducto);
         }
         public static List<Producto> Buscar()

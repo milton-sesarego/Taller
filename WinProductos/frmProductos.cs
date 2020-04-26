@@ -30,6 +30,18 @@ namespace WinProductos
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Producto pProducto = ObtenerProducto();
+            // Validamos que el stock sea mayor que 0
+            if (pProducto.Stock < 0)
+            {
+                MessageBox.Show("El Stock debe ser mayor o igual a 0");
+                return;
+            }
+            // Validamos que el precio sea mayor a 0
+            if (pProducto.Precio < 0)
+            {
+                MessageBox.Show("El Precio debe ser mayor o igual a 0");
+                return;
+            }
             if (ProductosManager.Guardar(pProducto) == 0)
             {
                 MessageBox.Show("Error al añadir o actualizar registro");

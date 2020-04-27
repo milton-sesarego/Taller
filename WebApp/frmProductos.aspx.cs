@@ -15,7 +15,15 @@ namespace WebApp
         public int IDProducto;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ActualizarGrilla();
+            if (!IsPostBack)
+            {
+                ActualizarGrilla();
+            }
+            else
+            {
+
+            }
+                
         }
         protected void ActualizarGrilla()
         {

@@ -38,7 +38,6 @@
 		<br />
 		<asp:GridView ID="dgv" runat="server" OnRowDataBound="dgv_RowDataBound" OnSelectedIndexChanged="dgv_SelectedIndexChanged"></asp:GridView>
         <br />
-        <asp:Label ID="lblOutput" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

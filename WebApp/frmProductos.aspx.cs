@@ -26,18 +26,11 @@ namespace WebApp
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Producto pProducto = ObtenerProducto();
-            // Validamos que el stock sea mayor que 0
-            if (pProducto.Stock < 0)
+            if(pProducto is null)
             {
-                Response.Write("<script>alert('El Stock debe ser mayor o igual a 0')</script>");
                 return;
             }
-            // Validamos que el precio sea mayor a 0
-            if (pProducto.Precio < 0)
-            {
-                Response.Write("<script>alert('El Precio debe ser mayor o igual a 0')</script>");
-                return;
-            }
+
             if (ProductosManager.Guardar(pProducto) == 0)
             {
                 Response.Write("<script>alert('Error al añadir o actualizar registro')</script>");
@@ -62,14 +55,47 @@ namespace WebApp
             pProducto.ID = Convert.ToInt32(Page.Session["IDProducto"]);
             pProducto.Nombre = txtNombre.Text;
             pProducto.Descripcion = txtDescripcion.Text;
+
             if (!string.IsNullOrEmpty(txtPrecio.Text))
             {
-                pProducto.Precio = Convert.ToDecimal(txtPrecio.Text);
+                decimal res;
+                if (decimal.TryParse(txtPrecio.Text, out res))
+                {
+                    pProducto.Precio = res;
+                }
+                else
+                {
+                    Response.Write("<script>alert('El precio debe ser un valor numérico')</script>");
+                    return null;
+                }
             }
             if (!string.IsNullOrEmpty(txtStock.Text))
             {
-                pProducto.Stock = Convert.ToInt32(txtStock.Text);
+                int res;
+                if (int.TryParse(txtStock.Text, out res))
+                {
+                    pProducto.Stock = res;
+                }
+                else
+                {
+                    Response.Write("<script>alert('El stock debe ser un valor numérico')</script>");
+                    return null;
+                }
             }
+
+            // Validamos que el stock sea mayor que 0
+            if (pProducto.Stock < 0)
+            {
+                Response.Write("<script>alert('El Stock debe ser mayor o igual a 0')</script>");
+                return null;
+            }
+            // Validamos que el precio sea mayor a 0
+            if (pProducto.Precio < 0)
+            {
+                Response.Write("<script>alert('El Precio debe ser mayor o igual a 0')</script>");
+                return null;
+            }
+
             return pProducto;
         }
         protected void Limpiar()

@@ -115,12 +115,9 @@ namespace DataAccess
         {
             int retorno = 0;
             SqlConnection conexion = BDComun.ObtenerConexion();
-
             SqlCommand _comando = new SqlCommand("DeleteProductos", conexion);
             _comando.CommandType = System.Data.CommandType.StoredProcedure;
-
             _comando.Parameters.AddWithValue("@IDProducto", pID);
-
             retorno = _comando.ExecuteNonQuery();
             conexion.Close();
             return retorno;

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-//using System.Web.Http.Cors;
+using System.Web.Http.Cors;
 using BusinessLogic;
 using Domain;
 
-namespace WebAPIProductos.Controllers
+namespace WebAPIProductos
 {
     public class ProductosController : ApiController
     {

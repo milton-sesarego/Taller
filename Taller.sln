@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTMLWebApp", "HTMLWebApp\HT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Services", "02-Services", "{FB2165E3-0215-4F71-8F1C-223CAAE17659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI_Productos", "WebApi_Productos\WebAPI_Productos.csproj", "{6E1E4205-3CCD-4FBF-891C-C3165AC5314A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI_Productos", "WebAPI_Productos\WebAPI_Productos.csproj", "{6E1E4205-3CCD-4FBF-891C-C3165AC5314A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

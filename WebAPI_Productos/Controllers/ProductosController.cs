@@ -8,7 +8,7 @@ using System.Web.Http.Cors;
 using BusinessLogic;
 using Domain;
 
-namespace WebAPIProductos
+namespace WebAPIClientes
 {
     public class ProductosController : ApiController
     {

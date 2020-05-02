@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace WebApplication1
+namespace WebAPI_Productos
 {
     public static class WebApiConfig
     {

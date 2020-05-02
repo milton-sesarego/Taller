@@ -1,11 +1,12 @@
 ﻿var myURL = "http://localhost:6030/api/productos";
+sessionStorage.setItem("IDProducto", 0);
 
 $(function () {
     actualizarGrilla();
     $('#btnGuardar').click(function () { guardarProducto(); });
     $('#btnEliminar').click(function () { borrarProducto(); });
     $('#btnCancelar').click(function () { limpiarControles(); });
-    $('#btnGuardar').val("Nuevo");
+    $('#btnGuardar').html("Nuevo");
 });
 
 function actualizarGrilla() {
@@ -33,22 +34,20 @@ function ajaxGET() {
 function ajaxPOST() {
     var result;
     var obj = obtenerProducto();
-    if (obj != null) {
-        $.ajax({
-            url: myURL,
-            type: 'POST',
-            async: false,
-            data: obj
-            //{ "Nombre": obj.Nombre, "Descripcion": obj.Descripción, "Precio": obj.Precio, "Stock": obj.Stock }
-        }).done(function (data) {
-            result = data;
-            alert('Elemento insertado')
-        }).error(function (xhr, status, error) {
-            alert(error);
-            var s = status;
-            var e = error;
-        });
-    }
+    $.ajax({
+        url: myURL,
+        type: 'POST',
+        async: false,
+        data: obj
+    }).done(function (data) {
+        result = data;
+        alert('Elemento insertado')
+    }).error(function (xhr, status, error) {
+        alert(error);
+        var s = status;
+        var e = error;
+    });
+    
     return result;
 }
 
@@ -69,12 +68,12 @@ function ajaxPUT() {
         var s = status;
         var e = error;
     });
-    return data;
+    return result;
 }
 
 function ajaxDELETE(id) {
     $.ajax({
-        url: myURL + id,
+        url: myURL + '/'+ id,
         type: 'DELETE',
         async: false
     }).done(function (data) {
@@ -102,7 +101,7 @@ function construyeGrilla(data) {
 
     for (d in data) {
         var row = $('<tr class="jqClickeable"></tr>');
-        row.append('<td>' + data[d].Id + '</td>');
+        row.append('<td>' + data[d].ID + '</td>');
         row.append('<td>' + data[d].Nombre + '</td>');
         row.append('<td>' + data[d].Descripcion + '</td>');
         row.append('<td>' + data[d].Precio + '</td>');
@@ -115,15 +114,17 @@ function construyeGrilla(data) {
 }
 
 function borrarProducto() {
-    //var id = 0;
-    //ajaxDELETE(id);
+    if (sessionStorage.getItem("IDProducto") != 0) {
+        ajaxDELETE(sessionStorage.getItem("IDProducto"));
+    } else {
+        alert("No hay ningún registro seleccionado");
+    }
     actualizarGrilla();
     limpiarControles();
 }
 
 function guardarProducto() {
-    var id = 0;
-    if (id == 0) {
+    if (sessionStorage.getItem("IDProducto") == 0) {
         ajaxPOST();
     }
     else {
@@ -134,16 +135,17 @@ function guardarProducto() {
 }
 
 function mostrarElemento(elem) {
+    sessionStorage.setItem("IDProducto", elem.children().eq(0).text());
     $('#txtNombre').val(elem.children().eq(1).text());
     $('#txtDescripcion').val(elem.children().eq(2).text());
     $('#txtPrecio').val(elem.children().eq(3).text());
     $('#txtStock').val(elem.children().eq(4).text());
-    $('#btnGuardar').val("Modificar");
+    $('#btnGuardar').html("Modificar");
 }
 
 function obtenerProducto() {
     var producto = {};
-    producto.Id = 0;
+    producto.Id = sessionStorage.getItem("IDProducto");
     producto.Nombre = $('#txtNombre').val();
     producto.Descripcion = $('#txtDescripcion').val();
     producto.Precio = $('#txtPrecio').val();
@@ -151,9 +153,10 @@ function obtenerProducto() {
     return producto;
 }
 function limpiarControles() {
+    sessionStorage.setItem("IDProducto", 0);
     $('#txtNombre').val("");
     $('#txtDescripcion').val("");
     $('#txtPrecio').val("");
     $('#txtStock').val("");
-    $('#btnGuardar').val("Nuevo");
+    $('#btnGuardar').html("Nuevo");
 }

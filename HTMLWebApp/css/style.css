@@ -7,13 +7,19 @@
 
 td {
     text-align: right;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 table {
     background: #808080;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tbl-input {
+    padding: 5px;
+    border: 2px solid whitesmoke;
 }
 
 .btn-danger{

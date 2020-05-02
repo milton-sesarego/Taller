@@ -10,6 +10,7 @@ using Domain;
 
 namespace WebAPIClientes
 {
+    [EnableCors(origins: "https://localhost:44321", headers: "*", methods: "*")]
     public class ProductosController : ApiController
     {
         // GET api/<controller>
@@ -21,6 +22,14 @@ namespace WebAPIClientes
         // POST api/<controller>
         public void Post([FromBody]Producto producto)
         {
+            if(producto.Nombre == null)
+            {
+                producto.Nombre = "";
+            }
+            if(producto.Descripcion == null)
+            {
+                producto.Descripcion = "";
+            }
             ProductosManager.Guardar(producto);
         }
 

@@ -84,22 +84,32 @@
     <None Include="Resources\Buscar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\actualizar.png" />
+    <None Include="Resources\actualizar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\agregar.png" />
+    <None Include="Resources\agregar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\buscar.png" />
+    <None Include="Resources\cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\cancel.png" />
+    <None Include="Resources\eliminar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\eliminar.png" />
+    <None Include="Resources\guardar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\guardar.png" />
+    <None Include="Resources\fondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{56d322f8-2a59-4146-be6e-e3e56174b890}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{fbd001c5-1166-4493-b376-c1447902ef7b}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

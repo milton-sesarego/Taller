@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.pckrFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.groupboxDatos = new System.Windows.Forms.GroupBox();
@@ -43,7 +42,7 @@
             this.linkYoutube = new System.Windows.Forms.LinkLabel();
             this.linkBlog = new System.Windows.Forms.LinkLabel();
             this.barraTareas = new System.Windows.Forms.ToolStrip();
-            this.btnNuevoGuardar = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -97,13 +96,13 @@
             this.lblFecha.TabIndex = 6;
             this.lblFecha.Text = "Fecha de nacimiento";
             // 
-            // pckrFechaNacimiento
+            // dtpFechaNacimiento
             // 
-            this.pckrFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pckrFechaNacimiento.Location = new System.Drawing.Point(21, 198);
-            this.pckrFechaNacimiento.Name = "pckrFechaNacimiento";
-            this.pckrFechaNacimiento.Size = new System.Drawing.Size(253, 26);
-            this.pckrFechaNacimiento.TabIndex = 8;
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(21, 198);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(253, 26);
+            this.dtpFechaNacimiento.TabIndex = 8;
             // 
             // lblDireccion
             // 
@@ -128,7 +127,7 @@
             this.groupboxDatos.Controls.Add(this.lblNroDocumento);
             this.groupboxDatos.Controls.Add(this.txtDireccion);
             this.groupboxDatos.Controls.Add(this.txtNombre);
-            this.groupboxDatos.Controls.Add(this.pckrFechaNacimiento);
+            this.groupboxDatos.Controls.Add(this.dtpFechaNacimiento);
             this.groupboxDatos.Controls.Add(this.lblDireccion);
             this.groupboxDatos.Controls.Add(this.txtApellido);
             this.groupboxDatos.Controls.Add(this.lblApellido);
@@ -174,7 +173,6 @@
             // 
             this.linkBlog.AutoSize = true;
             this.linkBlog.BackColor = System.Drawing.SystemColors.Control;
-            this.linkBlog.Cursor = System.Windows.Forms.Cursors.Default;
             this.linkBlog.LinkColor = System.Drawing.Color.Black;
             this.linkBlog.Location = new System.Drawing.Point(12, 9);
             this.linkBlog.Name = "linkBlog";
@@ -189,66 +187,67 @@
             this.barraTareas.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barraTareas.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.barraTareas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevoGuardar,
+            this.btnGuardar,
             this.toolStripSeparator1,
             this.btnCancelar,
             this.toolStripSeparator5,
             this.btnBuscar,
             this.toolStripSeparator4,
             this.btnEliminar});
-            this.barraTareas.Location = new System.Drawing.Point(0, 523);
+            this.barraTareas.Location = new System.Drawing.Point(0, 519);
             this.barraTareas.Name = "barraTareas";
-            this.barraTareas.Size = new System.Drawing.Size(1206, 34);
+            this.barraTareas.Size = new System.Drawing.Size(1206, 38);
             this.barraTareas.TabIndex = 14;
             this.barraTareas.Text = "barraTareas";
             // 
-            // btnNuevoGuardar
+            // btnGuardar
             // 
-            this.btnNuevoGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoGuardar.Image")));
-            this.btnNuevoGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoGuardar.Name = "btnNuevoGuardar";
-            this.btnNuevoGuardar.Size = new System.Drawing.Size(92, 29);
-            this.btnNuevoGuardar.Text = "Nuevo";
-            this.btnNuevoGuardar.Click += new System.EventHandler(this.btnNuevoGuardar_Click);
+            this.btnGuardar.Image = global::WinClientes.Properties.Resources.agregar;
+            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(92, 33);
+            this.btnGuardar.Text = "Nuevo";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Image = global::WinClientes.Properties.Resources.cancel;
             this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 29);
+            this.btnCancelar.Size = new System.Drawing.Size(106, 33);
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Image = global::WinClientes.Properties.Resources.buscar;
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(91, 29);
+            this.btnBuscar.Size = new System.Drawing.Size(91, 33);
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.Image = global::WinClientes.Properties.Resources.eliminar;
             this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(102, 29);
+            this.btnEliminar.Size = new System.Drawing.Size(102, 33);
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -269,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::WinClientes.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1206, 557);
             this.Controls.Add(this.dgv);
@@ -279,6 +278,7 @@
             this.Controls.Add(this.groupboxDatos);
             this.Name = "frmClientes";
             this.Text = "Administración de Clientes";
+            this.Load += new System.EventHandler(this.frmClientes_Load);
             this.groupboxDatos.ResumeLayout(false);
             this.groupboxDatos.PerformLayout();
             this.barraTareas.ResumeLayout(false);
@@ -296,14 +296,14 @@
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.DateTimePicker pckrFechaNacimiento;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.GroupBox groupboxDatos;
         private System.Windows.Forms.LinkLabel linkYoutube;
         private System.Windows.Forms.LinkLabel linkBlog;
         private System.Windows.Forms.ToolStrip barraTareas;
-        private System.Windows.Forms.ToolStripButton btnNuevoGuardar;
+        private System.Windows.Forms.ToolStripButton btnGuardar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnEliminar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;

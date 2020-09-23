@@ -11,6 +11,7 @@ namespace DataAccess
     {
         public static SqlConnection ObtenerConexion()
         {
+
             SqlConnection conectar = new SqlConnection("Data Source=DESKTOP-RVDRODE\\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=true;");
 
             conectar.Open();
